@@ -17,15 +17,7 @@ dotenv.config();
 
 connectDB();
 
-// Налаштування CORS для дозволу запитів з вашого фронтенду
-const corsOptions = {
-  origin: ["http://localhost:3000", "https://your-frontend-domain.vercel.app"], // Додайте домени вашого фронтенду
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true,
-  optionsSuccessStatus: 204,
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 if (process.env.NODE_ENV === "developement") {

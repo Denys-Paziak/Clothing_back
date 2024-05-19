@@ -17,7 +17,12 @@ dotenv.config();
 
 connectDB();
 
-app.use(cors());
+const corsOptions = {
+  origin: 'https://clothing-front.vercel.app',
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 if (process.env.NODE_ENV === "developement") {
@@ -55,6 +60,6 @@ app.get('/', (req, res) => {
 });
 
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, console.log(`Server is running on Port ${PORT}`));

@@ -47,6 +47,10 @@ app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 // });
 //}
 
+app.get("/", (req, res) => {
+  res.status(201).json({ success: true, message: "Welcome VogueHaven APP" });
+});
+
 app.use(errorHandler);
 app.use(notFound);
 

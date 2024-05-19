@@ -17,12 +17,7 @@ dotenv.config();
 
 connectDB();
 
-const corsOptions = {
-  origin: 'https://clothing-front.vercel.app',
-  optionsSuccessStatus: 200
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 if (process.env.NODE_ENV === "developement") {
@@ -54,11 +49,6 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(errorHandler);
 app.use(notFound);
-
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
 
 const PORT = process.env.PORT || 5000;
 
